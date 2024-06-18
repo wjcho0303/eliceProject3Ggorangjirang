@@ -53,11 +53,11 @@
 
 <h3>※ 트러블 슈팅 </h3>
 <h5> 1. AmazonS3Config 파일을 만들고, yml 파일을 통해 관련된 환경 변수들을 관리하는 과정</h5>
-1-1) 앱 실행 환경에서 이미지 업로드 문제가 없었으나, test의 contextLoads()가 실패.
-—> test 디렉토리에 있는 resources/application.yml 의 내용에 aws S3와 관련된 환경변수를 적용하지 않아 문제가 발생했음을 확인하고 이를 수정하였습니다.
+1-1) 앱 실행 환경에서 이미지 업로드 문제가 없었으나, test의 contextLoads()가 실패.<br/>
+—> test 디렉토리에 있는 resources/application.yml 의 내용에 aws S3와 관련된 환경변수를 적용하지 않아 문제가 발생했음을 확인하고 이를 수정하였습니다.<br/>
 <br/>
-1-2) 앱 실행과 테스트 실행 모두 정상적으로 작동하는 것을 확인한 후 merge 하려 했으나 CI/CD 파이프라인의 test 단계에서 막혔습니다.
-—> CI/CD Variable을 담은 파일에 env.yml 파일의 내용을 추가함으로써 해결하였습니다.
+1-2) 앱 실행과 테스트 실행 모두 정상적으로 작동하는 것을 확인한 후 merge 하려 했으나 CI/CD 파이프라인의 test 단계에서 막혔습니다.<br/>
+—> CI/CD Variable을 담은 파일에 env.yml 파일의 내용을 추가함으로써 해결하였습니다.<br/>
 <br/>
 <br/>
 
@@ -67,7 +67,7 @@
 <br/>
 
 <h5> 3. API 호출 시 parameter name 정보를 인식하지 못해 작업을 수행하지 못하는 문제 발생</h5>
-스프링 4.3 이상부터 명시적으로 변수 이름을 지정하는 것이 권장된다는 것을 확인하였습니다. 실제로 Controller에서 변수명을 지정해주지 않아 발생한 문제임을 확인했고,
+스프링 4.3 이상부터 명시적으로 변수 이름을 지정하는 것이 권장된다는 것을 확인하였습니다. 실제로 Controller에서 변수명을 지정해주지 않아 발생한 문제임을 확인했고,<br/>
 —> @PathVariable(”변수명”) 을 지정
 —> @RequestParam(name = “변수명”) 을 지정
 함으로써 해결하였습니다.
@@ -83,8 +83,8 @@
 LocalDate newExpirationDate = (request.getExpirationDate() != null) ? request.getExpirationDate() : product.getExpirationDate();
 ```
 
-그러므로 위와 같은 삼항 연산자를 통해 `newExpirationDate` 를 선언하고, 상품을 수정하는 update 메서드 파라미터에는 request.getExpiration() 으로 값을 호출하지 않고 위에서 선언한 newExpirationDate 를 호출함으로써 null 참조를 통한 메서드를 회피하였습니다.
-그리하여 기존 product의 expirationDate와 request의 expirationDate 모두 null이어도  NullPointerException이 발생하지 않게 되었습니다.
+그러므로 위와 같은 삼항 연산자를 통해 `newExpirationDate` 를 선언하고, 상품을 수정하는 update 메서드 파라미터에는 request.getExpiration() 으로 값을 호출하지 않고 위에서 선언한 newExpirationDate 를 호출함으로써 null 참조를 통한 메서드를 회피하였습니다.<br/>
+그리하여 기존 product의 expirationDate와 request의 expirationDate 모두 null이어도  NullPointerException이 발생하지 않게 되었습니다.<br/>
 <br/>
 <br/>
 
