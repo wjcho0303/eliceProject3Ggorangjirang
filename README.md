@@ -110,7 +110,7 @@ LocalDate newExpirationDate = (request.getExpirationDate() != null) ? request.ge
 ---
 
 <h3>※ 프로젝트 소스 코드 (백엔드) </h3>
-=https://github.com/ggorangjirang/backend
+https://github.com/ggorangjirang/backend
 <br/>
 <br/>
 <h3>※ 도메인 시연 영상 </h3>
