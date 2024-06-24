@@ -53,6 +53,7 @@
 
 <h3>※ 담당 영역 </h3>
 - 상품 카테고리 CRUD <br/>
+- 장바구니 CRUD (부분) <br/>
 - 상품 CRUD <br/>
 - 리뷰 CRUD <br/>
 - 관리자 메인 페이지(thymeleaf) <br/>
