@@ -61,7 +61,6 @@
 - Discord Webhook 연동 - 특정 상황에 대해 디스코드 알림 설정. 알림의 경중에 따라 INFO, WARNING, ERROR 로 알림의 유형 구분 <br/>
 - MySQL Workbench를 통한 서버 데이터 관리 <br/>
 - 장바구니 도메인 테스트 코드 작성 <br/>
-- 상품 도메인 테스트 코드 작성 <br/>
 - 메인 페이지 슬라이드 광고 배너 제작 (망고보드 디자인 플랫폼 활용) <br/>
 - 프로젝트 시연 영상 녹화 <br/>
 <br/>
@@ -103,25 +102,6 @@ LocalDate newExpirationDate = (request.getExpirationDate() != null) ? request.ge
 
 그러므로 위와 같은 삼항 연산자를 통해 `newExpirationDate` 를 선언하고, 상품을 수정하는 update 메서드 파라미터에는 request.getExpiration() 으로 값을 호출하지 않고 위에서 선언한 newExpirationDate 를 호출함으로써 null 참조를 통한 메서드를 회피하였습니다.<br/>
 그리하여 기존 product의 expirationDate와 request의 expirationDate 모두 null이어도  NullPointerException이 발생하지 않게 되었습니다.<br/>
-<br/>
-<br/>
-
----
-
-<h3>※ 현재 기준 개선할 점 (수정 및 리팩토링 중)</h3>
-- OAuth 2.0 로그인 현재 오작동 중<br/>
-- 상품 상세 페이지 수량 default 값을 0으로 변경하는 것이 좋을 것 같음<br/>
-- 재고가 없는 상품(품절 상품)의 경우 장바구니 담기/바로구매 요청 막기 --> 버튼 비활성화 + stock 또는 isSoldOut 필드 검증 후 예외 처리<br/>
-- 유저 로그인, 로그아웃, 회원정보 수정, 결제, 결제취소, 예외 처리에 대한 로그 처리 미완성<br/>
-- 데이터베이스 기준 시간 +9 처리할 것<br/>
-- 주문 취소 완료 후 다시 mypage/purchased 로 리다이렉트<br/>
-- 배송완료된 주문 건을 주문취소할 경우 유저 피드백 모달창 / or 배송완료 주문건은 처음부터 주문취소 버튼 비활성화<br/>
-- 주문/배송 화면에서 주문 내역에 있는 상품들에 상세 페이지 링크 걸어주기<br/>
-- 헤더 검색창에서 입력 후 Enter 치면 결과로 이동하기<br/>
-- 검색 결과에 나온 상품을 클릭했을 때 /categories/products?productId=108 가 아닌 /products?productId=108 로 이동하도록 수정<br/>
-- 상품 상세페이지에서 리뷰 이미지가 나오도록 수정 / 리뷰 페이징 처리<br/>
-- 메인 화면에 선착순 한정세일 리스트에는 재고량이 표시되게 하기<br/>
-- 발견 시 추가입력<br/>
 <br/>
 <br/>
 
